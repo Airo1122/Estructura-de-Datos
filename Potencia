@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+float potencia(float b, float e);
+int main()
+{
+    float b, e;
+    cout<<"Ingrese la base: ";
+    cin>>b;
+    cout<<"Ingrese el exponenete: ";
+    cin>>e;
+    cout<<"El resultado de la potencia es: "<<potencia(b,e)<<endl;
+    return 0;
+}
+float potencia(float b, float e)
+{
+    float p=1;
+    if(e == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return b * potencia(b,e - 1);
+    }
+}
