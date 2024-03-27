@@ -1,0 +1,60 @@
+#include <iostream>
+#include <string>
+#include"Cadenas.h"
+using namespace std;
+
+int main()
+{
+	int opcion;
+	string nombre;
+	Cadenas can1;
+	string var2;
+	int cont = 0;
+	do
+	{
+	cout << "Menu \n";
+	cout << "1.-Pedir un string \n";
+	cout << "2.-Longitud \n";
+	cout << "3.-Comparar \n";
+	cout << "4.-Contar vocales \n";
+	cout << "0.-Salir \n";
+	cout << "Opcion: ";
+	cin >> opcion;
+	switch (opcion)
+	{
+	case 1:
+		cin.ignore();
+		cout << "Ingresar un string: ";
+		getline(cin, nombre);
+		can1.set_cadenas(nombre);
+		break;
+	case 2:
+		cout << "La longitud es: " << can1.tamanio();
+		break;
+	case 3:
+		cout << "Ingrese otro string para comparar: ";
+		getline(cin, var2);
+		if (nombre.compare(var2) == 0)
+			cout << endl << "Los datos coinciden" << endl;
+		else
+			cout << nombre << " es diferente que " << var2 << " :1" << endl;
+		break;
+	case 4:
+		cont = 0;
+		for (int i = 0; i < nombre.length(); i++) // Use length() function instead of undefined 'longitud' variable
+			if (nombre.at(i) == 'a' || nombre.at(i) == 'e' || nombre.at(i) == 'i' || nombre.at(i) == 'o' || nombre.at(i) == 'u')
+				cont++;
+		cout << "Numero de vocales: " << cont << endl;
+		break;
+	case 0:
+		cout << "salir\n";
+		break;
+	default:
+		cout << "Opcion invalida";
+	}
+	system("pause");
+	system("cls");
+	} while (opcion != 0);
+
+return 0;
+}
